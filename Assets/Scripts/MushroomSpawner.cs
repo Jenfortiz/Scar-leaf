@@ -8,7 +8,7 @@ public class MushroomSpawner : MonoBehaviour
     public LayerMask terrainLayer;
     
     public int maxMushroomsOnScreen = 50;
-    public float spawnInterval = 5f;    
+    public float spawnInterval = 2f;    
     
     public float minX = 0f;
     public float maxX = 40f;
@@ -21,7 +21,6 @@ public class MushroomSpawner : MonoBehaviour
     {
         if (mushroomPrefab == null)
         {
-            Debug.LogError("Mushroom Prefab is not assigned! Stopping spawner.");
             return;
         }
         
@@ -66,7 +65,7 @@ public class MushroomSpawner : MonoBehaviour
         }
         else
         {
-            Debug.LogWarning($"Could not find terrain at {randomPos}. Check LayerMask or map bounds.");
+            Debug.Log("Spawn failed: No terrain found below the spawn point.");
         }
     }
 }
